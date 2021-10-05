@@ -6,13 +6,504 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageButton
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:backgroundTintMode="screen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        app:tint="#597DA3" />
+
+    <ImageButton
+        android:id="@+id/qrcodeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTintMode="screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_qr_code_24"
+        app:tint="#597DA3" />
+
+    <ImageButton
+        android:id="@+id/upButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTintMode="screen"
+        app:layout_constraintEnd_toStartOf="@id/qrcodeButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_trending_up_24"
+        app:tint="#597DA3" />
+
+    <TextView
+        android:id="@+id/ProfileIdTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id111111111111"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/backButton"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="@id/backButton"
+        app:layout_constraintBottom_toBottomOf="@id/backButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ProfilePhotoIV"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="@id/backButton"
+        app:layout_constraintTop_toBottomOf="@id/backButton"
+        android:src="@mipmap/avatar"/>
+
+    <TextView
+        android:id="@+id/NameAndSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Имя Фамилия"
+        android:textColor="@color/black"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/ProfilePhotoIV"
+        app:layout_constraintTop_toTopOf="@+id/ProfilePhotoIV" />
+
+    <EditText
+        android:id="@+id/NameAndSurnameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:textSize="13dp"
+        android:text="Имя Фамилия"
+        android:textColor="@color/black"
+        android:background="@color/teal_200"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/ProfilePhotoIV"
+        app:layout_constraintTop_toTopOf="@+id/ProfilePhotoIV" />
+
+    <TextView
+        android:id="@+id/Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Установить статус"
+        android:textColor="#597DA3"
+        app:layout_constraintStart_toEndOf="@+id/ProfilePhotoIV"
+        app:layout_constraintTop_toBottomOf="@id/NameAndSurname" />
+
+    <TextView
+        android:id="@+id/OnlineStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Онлайн"
+        app:layout_constraintStart_toEndOf="@+id/ProfilePhotoIV"
+        app:layout_constraintTop_toBottomOf="@id/Status" />
+
+    <Button
+        android:id="@+id/EditButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="24dp"
+        android:textAllCaps="false"
+        android:textColor="#597DA3"
+        android:textSize="16dp"
+        android:backgroundTint="#eeddff"
+        android:text="Редактировать"
+        app:layout_constraintTop_toBottomOf="@+id/ProfilePhotoIV" />
+
+    <ImageButton
+        android:id="@+id/hisrtoryIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTintMode="screen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EditButton"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="40dp"
+        app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+        app:tint="#597DA3" />
+
+    <ImageButton
+        android:id="@+id/postIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTintMode="screen"
+        app:layout_constraintStart_toEndOf="@+id/hisrtoryIB"
+        app:layout_constraintTop_toBottomOf="@+id/EditButton"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="40dp"
+        app:srcCompat="@drawable/ic_baseline_edit_24"
+        app:tint="#597DA3" />
+
+    <ImageButton
+        android:id="@+id/photoIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTintMode="screen"
+        app:layout_constraintStart_toEndOf="@+id/postIB"
+        app:layout_constraintTop_toBottomOf="@id/EditButton"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="40dp"
+        app:srcCompat="@drawable/ic_baseline_photo_24"
+        app:tint="#597DA3" />
+
+    <ImageButton
+        android:id="@+id/CringeTikTokCompilationIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTintMode="screen"
+        app:layout_constraintStart_toEndOf="@+id/photoIB"
+        app:layout_constraintTop_toBottomOf="@id/EditButton"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="40dp"
+        app:srcCompat="@drawable/ic_baseline_ondemand_video_24"
+        app:tint="#597DA3" />
+
+    <TextView
+        android:id="@+id/historyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="История"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="36dp"
+        android:textColor="#597DA3"
+        app:layout_constraintTop_toBottomOf="@+id/hisrtoryIB"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/editTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Запись"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="36dp"
+        android:textColor="#597DA3"
+        app:layout_constraintStart_toEndOf="@+id/historyTV"
+        app:layout_constraintTop_toBottomOf="@+id/postIB" />
+
+    <TextView
+        android:id="@+id/photoTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Фото"
+        android:layout_marginTop="8dp"
+        android:textColor="#597DA3"
+        android:layout_marginLeft="48dp"
+        app:layout_constraintStart_toEndOf="@+id/editTV"
+        app:layout_constraintTop_toBottomOf="@+id/photoIB" />
+
+    <TextView
+        android:id="@+id/TIKTOKTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Клип"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="52dp"
+        android:textColor="#597DA3"
+        app:layout_constraintStart_toEndOf="@+id/photoTV"
+        app:layout_constraintTop_toBottomOf="@+id/CringeTikTokCompilationIB" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/ProfileIdTV"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_blue_bright" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_blue_bright"
+        app:layout_constraintTop_toBottomOf="@id/historyTV" />
+
+    <ImageButton
+        android:id="@+id/subscribersIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        android:layout_margin="12dp"
+        android:rotation="45"
+        app:srcCompat="@drawable/ic_baseline_wifi_24"
+        app:tint="#597DA3"/>
+
+    <ImageButton
+        android:id="@+id/educationIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subscribersIB"
+        android:layout_margin="12dp"
+        app:srcCompat="@drawable/ic_baseline_school_24"
+        app:tint="#597DA3"/>
+
+    <ImageButton
+        android:id="@+id/workIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/educationIB"
+        android:layout_margin="12dp"
+        app:srcCompat="@drawable/ic_baseline_work_24"
+        app:tint="#597DA3"/>
+
+    <ImageButton
+        android:id="@+id/infoIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workIB"
+        android:layout_margin="12dp"
+        app:srcCompat="@drawable/ic_baseline_info_24"
+        app:tint="#597DA3"/>
+
+    <TextView
+        android:id="@+id/subscribersTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="468 подписчиков"
+        android:textSize="12dp"
+        android:textColor="@color/cardview_dark_background"
+        android:layout_margin="12dp"
+        app:layout_constraintStart_toEndOf="@+id/subscribersIB"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/educationTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Указать место учёбы"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="18dp"
+        android:textSize="12dp"
+        android:textColor="#597DA3"
+        app:layout_constraintStart_toEndOf="@+id/educationIB"
+        app:layout_constraintTop_toBottomOf="@+id/subscribersTV" />
+
+    <TextView
+        android:id="@+id/workTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Указать место работы"
+        android:textColor="#597DA3"
+        android:textSize="12dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintStart_toEndOf="@+id/workIB"
+        app:layout_constraintTop_toBottomOf="@+id/educationTV" />
+
+    <TextView
+        android:id="@+id/infoTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Подробная информация"
+        android:textSize="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#495DD3"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/infoIB"
+        app:layout_constraintTop_toBottomOf="@+id/workTV" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_blue_bright"
+        app:layout_constraintTop_toBottomOf="@id/infoIB" />
+
+    <TextView
+        android:id="@+id/friendsTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ДРУЗЬЯ"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="51"
+        android:layout_marginLeft="4dp"
+        app:layout_constraintStart_toEndOf="@+id/friendsTV"
+        app:layout_constraintTop_toTopOf="@id/friendsTV" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/friend1photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@+id/friendsTV"
+        app:layout_constraintTop_toBottomOf="@+id/friendsTV"
+        app:srcCompat="@drawable/ic_baseline_photo_24"
+        android:src="@mipmap/friend1"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/friend2photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:layout_constraintStart_toEndOf="@+id/friend1photo"
+        app:layout_constraintTop_toBottomOf="@+id/friendsTV"
+        app:srcCompat="@drawable/ic_baseline_photo_24"
+        android:src="@mipmap/friend2"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/friend3photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:layout_constraintStart_toEndOf="@+id/friend2photo"
+        app:layout_constraintTop_toBottomOf="@+id/friendsTV"
+        app:srcCompat="@drawable/ic_baseline_photo_24"
+        android:src="@mipmap/friend3"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/friend4photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:layout_constraintStart_toEndOf="@+id/friend3photo"
+        app:layout_constraintTop_toBottomOf="@+id/friendsTV"
+        app:srcCompat="@drawable/ic_baseline_photo_24"
+        android:src="@mipmap/friend4"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/friend5photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:layout_constraintStart_toEndOf="@+id/friend4photo"
+        app:layout_constraintTop_toBottomOf="@+id/friendsTV"
+        app:srcCompat="@drawable/ic_baseline_photo_24"
+        android:src="@mipmap/friend5"/>
+
+    <TextView
+        android:id="@+id/friend1TV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Пётр Шмель"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/friend1photo"
+        app:layout_constraintStart_toStartOf="@+id/friend1photo"
+        app:layout_constraintTop_toBottomOf="@+id/friend1photo" />
+
+    <TextView
+        android:id="@+id/friend2TV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Шарарам"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/friend2photo"
+        app:layout_constraintStart_toStartOf="@+id/friend2photo"
+        app:layout_constraintTop_toBottomOf="@+id/friend2photo" />
+
+    <TextView
+        android:id="@+id/friend3TV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Володя"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/friend3photo"
+        app:layout_constraintStart_toStartOf="@+id/friend3photo"
+        app:layout_constraintTop_toBottomOf="@+id/friend3photo" />
+
+    <TextView
+        android:id="@+id/friend4TV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Анонимус"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/friend4photo"
+        app:layout_constraintStart_toStartOf="@+id/friend4photo"
+        app:layout_constraintTop_toBottomOf="@+id/friend4photo" />
+
+    <TextView
+        android:id="@+id/friend5TV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="евГениальный"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/friend5photo"
+        app:layout_constraintStart_toStartOf="@+id/friend5photo"
+        app:layout_constraintTop_toBottomOf="@+id/friend5photo" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/homeIV"
+        android:layout_width="72dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="6dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_home_24"
+        app:tint="#597DA3" />
+
+    <ImageView
+        android:id="@+id/servicesIV"
+        android:layout_width="72dp"
+        android:layout_height="32dp"
+        android:layout_margin="12dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/homeIV"
+        app:srcCompat="@drawable/ic_baseline_apps_24"
+        app:tint="#597DA3" />
+
+    <ImageView
+        android:id="@+id/messageIV"
+        android:layout_width="72dp"
+        android:layout_height="32dp"
+        android:layout_margin="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tiktokIV"
+        app:layout_constraintStart_toEndOf="@+id/servicesIV"
+        app:srcCompat="@drawable/ic_baseline_message_24"
+        app:tint="#597DA3" />
+
+    <ImageView
+        android:id="@+id/tiktokIV"
+        android:layout_width="72dp"
+        android:layout_height="32dp"
+        android:layout_margin="12dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_ondemand_video_24"
+        app:tint="#597DA3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
