@@ -1,0 +1,55 @@
+package com.example.myapplication
+
+object HeroRepository {
+    val heroes = arrayListOf(
+        Hero(
+            1,
+            "Pudge",
+            700,
+            267,
+            "https://www.meme-arsenal.com/memes/b5106d12cdf2d9656b9a05a91d29bac6.jpg"
+        ),
+        Hero(
+            2,
+            "Steve",
+            1000,
+            0,
+            "https://static.turbosquid.com/Preview/2016/03/18__12_04_37/MinecraftSteve3dmodel01.jpg2eb1a973-07fd-4dab-b0c7-1c607d93be33Large.jpg"
+        ),
+        Hero(
+            3,
+            "Slidan",
+            1,
+            220,
+            "https://cs10.pikabu.ru/post_img/2018/09/05/5/1536128461150051438.jpg"
+        ),
+        Hero(
+            4,
+            "Cat",
+            400,
+            865587,
+            "https://www.treehouseanimals.org/wp-content/uploads/2020/02/COMM-CATS-MOBILE-BANNER-640x520-c-default.jpg"
+        ),
+        Hero(
+            6,
+            "Neighbour",
+            400000,
+            0,
+            "https://www.mmohelper.ru/wp-content/uploads/2020/07/4-personazh-zlobnyy-sosed-iz-igry-kak-dostat-soseda-2.jpg"
+        ),
+        Hero(
+            7,
+            "Moorhuhn",
+            400,
+            100,
+            "http://sun9-31.userapi.com/c551/g2971707/a_7154e4d1.jpg"
+        ),
+        Hero(
+            8,
+            "Кузя",
+            100,
+            67,
+            "https://cubiq.ru/wp-content/uploads/2020/02/hugo.jpg"
+        ),
+    )
+}
