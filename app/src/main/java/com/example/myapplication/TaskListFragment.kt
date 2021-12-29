@@ -36,13 +36,14 @@ class TaskListFragment : Fragment(R.layout.fragment_list_task) {
             if (taskList.isEmpty()) {
                 view.findViewById<TextView>(R.id.tv_please_add_task).visibility = view.visibility
             }
+
+            view.findViewById<RecyclerView>(R.id.tasks).run {
+                adapter = taskAdapter
+            }
         }
 
         view.findViewById<ImageButton>(R.id.btn_add).setOnClickListener {
             goToEditFragment(-1)
-        }
-        view.findViewById<RecyclerView>(R.id.tasks).run {
-            adapter = taskAdapter
         }
     }
 
