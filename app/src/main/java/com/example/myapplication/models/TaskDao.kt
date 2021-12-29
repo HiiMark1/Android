@@ -5,15 +5,15 @@ import androidx.room.*
 @Dao
 interface TaskDao {
     @Query("SELECT * FROM task")
-    fun getAll(): List<Task>
+    suspend fun getAll(): List<Task>
     @Query("SELECT * FROM task WHERE id = :id")
-    fun getById(id: Int): Task
+    suspend fun getById(id: Int): Task
     @Insert
-    fun save(task: Task)
+    suspend fun save(task: Task)
     @Update
-    fun update(task: Task)
+    suspend fun update(task: Task)
     @Query("DELETE FROM task")
-    fun deleteAll()
+    suspend fun deleteAll()
     @Delete
-    fun delete(task: Task)
+    suspend fun delete(task: Task)
 }

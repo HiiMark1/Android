@@ -5,10 +5,16 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.myapplication.databinding.FragmentEditTaskBinding
 import com.example.myapplication.models.Task
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class EditTaskFragment : Fragment(R.layout.fragment_edit_task) {
     private lateinit var db: AppDatabase
     private lateinit var binding: FragmentEditTaskBinding
+    private val job = Job()
+    private val scope = CoroutineScope(Dispatchers.Main + job)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,11 +29,13 @@ class EditTaskFragment : Fragment(R.layout.fragment_edit_task) {
                         save()
                     }
                 } else {
-                    val task = db.taskDao().getById(id)
-                    etTitle.setText(task.title)
-                    etDescription.setText(task.description)
-                    btnSave.setOnClickListener {
-                        update(id)
+                    scope.launch {
+                        val task = db.taskDao().getById(id)
+                        etTitle.setText(task.title)
+                        etDescription.setText(task.description)
+                        btnSave.setOnClickListener {
+                            update(id)
+                        }
                     }
                 }
             }
@@ -38,12 +46,14 @@ class EditTaskFragment : Fragment(R.layout.fragment_edit_task) {
         with(binding) {
             val title = etTitle.text.toString()
             val description = etDescription.text.toString()
-            db.taskDao().save(
-                Task(
-                    title,
-                    description
+            scope.launch {
+                db.taskDao().save(
+                    Task(
+                        title,
+                        description
+                    )
                 )
-            )
+            }
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.container, TaskListFragment())
                 ?.commit()
@@ -54,9 +64,11 @@ class EditTaskFragment : Fragment(R.layout.fragment_edit_task) {
         with(binding) {
             val title = etTitle.text.toString()
             val desc = etDescription.text.toString()
-            db.taskDao().update(
-                Task(id, title, desc)
-            )
+            scope.launch {
+                db.taskDao().update(
+                    Task(id, title, desc)
+                )
+            }
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.container, TaskListFragment())
                 ?.commit()
